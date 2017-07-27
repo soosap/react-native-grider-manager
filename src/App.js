@@ -2,16 +2,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components/native';
 import { Provider } from 'react-redux';
+import { Text } from 'react-native';
 import { createStore } from 'redux';
 import firebase from 'firebase';
 
 import reducers from './reducers';
 
-import { Button, Spinner, Input, Header } from './components/common';
+import { Button, Spinner, Input, Header, Card, CardSection } from './components/common';
 
-const Wrapper = styled.View`
-  margin-top: 0;
-`;
+const Wrapper = styled.View`margin-top: 0;`;
 
 class App extends Component {
   componentWillMount() {
@@ -35,6 +34,11 @@ class App extends Component {
           <Button>Hello World!!!</Button>
           <Spinner />
           <Input placeholder="Enter your Email here..." />
+          <Card>
+            <CardSection>
+              <Text>Hello</Text>
+            </CardSection>
+          </Card>
         </Wrapper>
       </Provider>
     );
