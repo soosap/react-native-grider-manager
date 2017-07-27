@@ -7,9 +7,11 @@ import firebase from 'firebase';
 
 import reducers from './reducers';
 
-const Wrapper = styled.View``;
+import { Button } from './components/common';
 
-const Text = styled.Text``;
+const Wrapper = styled.View`
+  margin-top: 50;
+`;
 
 class App extends Component {
   componentWillMount() {
@@ -29,7 +31,7 @@ class App extends Component {
     return (
       <Provider store={createStore(reducers)}>
         <Wrapper>
-          <Text>Hello World</Text>
+          <Button>Hello World!!!</Button>
         </Wrapper>
       </Provider>
     );
