@@ -7,7 +7,7 @@ import firebase from 'firebase';
 
 import reducers from './reducers';
 
-import { Button } from './components/common';
+import { Button, Spinner, Input } from './components/common';
 
 const Wrapper = styled.View`
   margin-top: 50;
@@ -32,6 +32,8 @@ class App extends Component {
       <Provider store={createStore(reducers)}>
         <Wrapper>
           <Button>Hello World!!!</Button>
+          <Spinner />
+          <Input placeholder="Enter your Email here..." />
         </Wrapper>
       </Provider>
     );
