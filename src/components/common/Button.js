@@ -4,10 +4,12 @@ import styled from 'styled-components/native';
 
 type Props = {
   onPress: Function,
-  children: Children
+  children: Children,
+  fluid: boolean,
 };
 
 const Wrapper = styled.TouchableOpacity`
+  flex: ${props => props.fluid ? '1' : 'none'};
   align-self: stretch;
   background-color: #fff;
   border-radius: 5px;
@@ -26,8 +28,8 @@ const Text = styled.Text`
   padding-bottom: 10;
 `;
 
-const Button = ({ onPress, children }: Props) =>
-  <Wrapper onPress={onPress}>
+const Button = ({ onPress, children, fluid }: Props) =>
+  <Wrapper fluid={fluid} onPress={onPress}>
     <Text>{children}</Text>
   </Wrapper>;
 

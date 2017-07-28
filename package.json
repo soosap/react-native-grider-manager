@@ -5,6 +5,7 @@
   "devDependencies": {
     "@storybook/react-native": "^3.1.9",
     "eslint-config-rallycoding": "^3.2.0",
+    "flow-bin": "0.51.0",
     "jest-expo": "~19.0.0",
     "react-dom": "16.0.0-alpha.12",
     "react-native-scripts": "1.0.0",
@@ -17,7 +18,8 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "storybook": "storybook start -p 7007"
+    "storybook": "storybook start -p 7007",
+    "flow": "flow"
   },
   "jest": {
     "preset": "jest-expo"
@@ -28,7 +30,10 @@
     "react": "16.0.0-alpha.12",
     "react-native": "^0.46.1",
     "react-redux": "^5.0.5",
+    "recompose": "^0.24.0",
     "redux": "^3.7.2",
+    "redux-form": "^7.0.3",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^2.1.1"
   }
 }

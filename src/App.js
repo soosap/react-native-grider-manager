@@ -2,15 +2,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components/native';
 import { Provider } from 'react-redux';
-import { Text } from 'react-native';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import firebase from 'firebase';
 
 import reducers from './reducers';
-
 import { Button, Spinner, Input, Header, Card, CardSection } from './components/common';
+import LoginForm from './components/LoginForm';
 
-const Wrapper = styled.View`margin-top: 0;`;
+const Wrapper = styled.View`
+  margin-top: 0;
+`;
 
 class App extends Component {
   componentWillMount() {
@@ -27,18 +29,13 @@ class App extends Component {
   }
 
   render() {
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={store}>
         <Wrapper>
-          <Header>Grider Manager</Header>
-          <Button>Hello World!!!</Button>
-          <Spinner />
-          <Input placeholder="Enter your Email here..." />
-          <Card>
-            <CardSection>
-              <Text>Hello</Text>
-            </CardSection>
-          </Card>
+          <Header>S A R O N I A</Header>
+          <LoginForm />
         </Wrapper>
       </Provider>
     );

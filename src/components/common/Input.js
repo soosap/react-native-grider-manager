@@ -1,15 +1,14 @@
 /* @flow */
 import React from 'react';
 import styled from 'styled-components/native';
+import { type FieldProps } from 'redux-form';
 
 type Props = {
   label?: string,
-  value: string,
-  onChangeText: Function,
   placeholder?: string,
   secureTextEntry?: boolean,
   autoCorrect?: boolean
-};
+} & FieldProps;
 
 const Wrapper = styled.View`
   height: 40px;
@@ -33,18 +32,19 @@ const TextInput = styled.TextInput`
   flex: 2;
 `;
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCorrect }: Props) =>
+const Input = ({ input, placeholder, label, secureTextEntry, autoCorrect }: Props) =>
   <Wrapper>
     {label &&
       <Label>
         {label}
       </Label>}
     <TextInput
-      value={value}
-      onChangeText={onChangeText}
+      {...input}
+      onChangeText={input.onChange}
       placeholder={placeholder}
       secureTextEntry={secureTextEntry}
       autoCorrect={autoCorrect}
+      autoCapitalize="none"
     />
   </Wrapper>;
 
